@@ -28,11 +28,9 @@ def init_db():
 
 init_db()
 
-
 @app.route("/")
 def home():
     return render_template("home.html")
-
 
 @app.route("/doctors")
 def index():
@@ -90,4 +88,4 @@ def delete_doctor(doctor_id):
     return redirect(url_for('index'))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=10000)
