@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 def get_db_connection():
     conn = sqlite3.connect('database.db')
-    conn.row_factory = sqlite3.Row  # Make it easier to access columns by name
+    conn.row_factory = sqlite3.Row  
     return conn
 
 def init_db():
@@ -28,12 +28,12 @@ def init_db():
 
 init_db()
 
-# ✅ Homepage is now the landing route
+
 @app.route("/")
 def home():
     return render_template("home.html")
 
-# ✅ Doctor list now at /doctors
+
 @app.route("/doctors")
 def index():
     conn = get_db_connection()
